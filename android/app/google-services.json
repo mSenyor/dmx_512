@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "531113037200",
+    "project_id": "dmx-512",
+    "storage_bucket": "dmx-512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531113037200:android:87e1bc1aca3bf0e7b0f715",
+        "android_client_info": {
+          "package_name": "com.shvedi.dmx_512"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531113037200-qs1ifgljk7dggpsfbttp8tr1kjlb22l7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhcbZNR9Y8l-YMB85LqYSS5KE6nHyi1Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531113037200-qs1ifgljk7dggpsfbttp8tr1kjlb22l7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "531113037200-506h465ucqpenecg9ruukc4c2290citn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.shvedi.dmx512.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
