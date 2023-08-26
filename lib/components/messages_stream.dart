@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dmx_512/components/single_message_bubble.dart';
 
-
 class MessagesStream extends StatelessWidget {
   const MessagesStream({
     super.key,
@@ -18,7 +17,10 @@ class MessagesStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection(kMainChatCollectionName).orderBy('timestamp').snapshots(),
+      stream: _firestore
+          .collection(kMainChatCollectionName)
+          .orderBy('timestamp')
+          .snapshots(),
       builder: (context, snapshot) {
         List<SingleMessageBubble> messageBubbles = [];
         if (!snapshot.hasData) {

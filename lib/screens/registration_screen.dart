@@ -134,8 +134,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               await user?.sendEmailVerification();
                               showDialog(
                                 context: context,
-                                builder: (BuildContext context) =>
-                                    AlertDialog(
+                                builder: (BuildContext context) => AlertDialog(
                                   title: const Text(
                                       'Registration completed successfully!'),
                                   content: const Text(
@@ -144,7 +143,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     TextButton(
                                       onPressed: () {
                                         Navigator.pop(context, 'OK');
-                                        Navigator.pushNamed(context, LoginScreen.id);
+                                        Navigator.pushNamed(
+                                            context, LoginScreen.id);
                                       },
                                       child: const Text(
                                         'OK',
@@ -159,11 +159,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             showSpinner = false;
                           });
                         } on FirebaseAuthException catch (e) {
-                          if(e.code == 'email-already-in-use'){
+                          if (e.code == 'email-already-in-use') {
                             Navigator.pushNamed(context, LoginScreen.id);
                             showSpinner = false;
-                          }
-                          else{
+                          } else {
                             showDialog(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
@@ -199,7 +198,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 }
 
-User? registerUser(User? user, String nickname){
+User? registerUser(User? user, String nickname) {
   user?.updateDisplayName(nickname);
   // user.updatePhoneNumber('phoneCredential' as PhoneAuthCredential);
   // user.updatePhotoURL('photoURL');

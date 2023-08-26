@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '531113037200',
     projectId: 'dmx-512',
     storageBucket: 'dmx-512.appspot.com',
-    iosClientId: '531113037200-ujc9h404dtnsr2pummh91ohd9ce3nbn3.apps.googleusercontent.com',
+    iosClientId:
+        '531113037200-ujc9h404dtnsr2pummh91ohd9ce3nbn3.apps.googleusercontent.com',
     iosBundleId: 'com.shvedi.dmx512',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '531113037200',
     projectId: 'dmx-512',
     storageBucket: 'dmx-512.appspot.com',
-    iosClientId: '531113037200-506h465ucqpenecg9ruukc4c2290citn.apps.googleusercontent.com',
+    iosClientId:
+        '531113037200-506h465ucqpenecg9ruukc4c2290citn.apps.googleusercontent.com',
     iosBundleId: 'com.shvedi.dmx512.RunnerTests',
   );
 }

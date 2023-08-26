@@ -94,7 +94,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             Hero(
               tag: 'log_in_button',
               child: RoundedButton(
-                onPress: (){
+                onPress: () {
                   Navigator.pushNamed(
                     context,
                     LoginScreen.id,
@@ -107,7 +107,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             Hero(
               tag: 'register_button',
               child: RoundedButton(
-                onPress: (){
+                onPress: () {
                   Navigator.pushNamed(
                     context,
                     RegistrationScreen.id,

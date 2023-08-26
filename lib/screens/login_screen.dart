@@ -104,19 +104,19 @@ class _LoginScreenState extends State<LoginScreen> {
                             password: password,
                           );
                           var user = _auth.currentUser;
-                          if(user!.emailVerified){
+                          if (user!.emailVerified) {
                             Navigator.pushNamed(context, ChatScreen.id);
-                          }
-                          else{
+                          } else {
                             await user.sendEmailVerification();
                             showDialog(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
                                 title: const Text('Verify your email'),
-                                content: const Text('Please log in to your email account and verify it by clicking the link provided'),
+                                content: const Text(
+                                    'Please log in to your email account and verify it by clicking the link provided'),
                                 actions: [
                                   TextButton(
-                                    onPressed: (){
+                                    onPressed: () {
                                       Navigator.pop(context, 'Got it!');
                                       setState(() {
                                         showSpinner = false;

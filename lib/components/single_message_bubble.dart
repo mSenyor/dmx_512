@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-
 class SingleMessageBubble extends StatelessWidget {
-
   final String sender;
   final String text;
   final String displayName;
@@ -40,7 +38,9 @@ class SingleMessageBubble extends StatelessWidget {
                   color: Colors.black26,
                 ),
               ),
-              const SizedBox(width: 10.0,),
+              const SizedBox(
+                width: 10.0,
+              ),
               Text(
                 time,
                 style: const TextStyle(

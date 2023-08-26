@@ -49,7 +49,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     final String? email = _auth.currentUser?.email;
 
     return Scaffold(
