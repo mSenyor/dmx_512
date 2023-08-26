@@ -59,6 +59,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     // email = value;
                     nickname = value;
                   },
+                  style: TextStyle(
+                    color: kBrightTextColor,
+                  ),
+                  cursorColor: kBrightTextColor,
                   decoration: kTextFieldInputDecoration.copyWith(
                       hintText: 'Choose a Nickname to display in chat'),
                   validator: (value) {
@@ -78,6 +82,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   onChanged: (value) {
                     email = value;
                   },
+                  style: TextStyle(
+                    color: kBrightTextColor,
+                  ),
+                  cursorColor: kBrightTextColor,
                   decoration: kTextFieldInputDecoration.copyWith(
                       hintText: 'Enter Your Email'),
                   validator: (value) {
@@ -97,6 +105,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   onChanged: (value) {
                     password = value;
                   },
+                  style: TextStyle(
+                    color: kBrightTextColor,
+                  ),
+                  cursorColor: kBrightTextColor,
                   decoration: kTextFieldInputDecoration.copyWith(
                       hintText: 'Enter Your Password'),
                   validator: (value) {
@@ -185,7 +197,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         }
                       }
                     },
-                    color: Colors.blueAccent,
+                    color: kRegisterButtonColor,
                     label: 'Register',
                   ),
                 ),

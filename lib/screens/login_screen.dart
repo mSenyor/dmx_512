@@ -54,6 +54,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (value) {
                     email = value;
                   },
+                  style: TextStyle(
+                    color: kBrightTextColor,
+                  ),
+                  cursorColor: kBrightTextColor,
                   decoration: kTextFieldInputDecoration.copyWith(
                       hintText: 'Enter Your Email'),
                   validator: (value) {
@@ -73,9 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (value) {
                     password = value;
                   },
-                  style: const TextStyle(
-                    color: Colors.black54,
+                  style: TextStyle(
+                    color: kBrightTextColor,
                   ),
+                  cursorColor: kBrightTextColor,
                   decoration: kTextFieldInputDecoration.copyWith(
                       hintText: 'Enter Your Password'),
                   validator: (value) {
@@ -155,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         }
                       }
                     },
-                    color: Colors.lightBlueAccent,
+                    color: kLogInButtonColor,
                     label: 'Log In',
                   ),
                 ),

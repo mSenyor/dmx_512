@@ -28,7 +28,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     );
     animation = ColorTween(
       begin: Colors.blueGrey,
-      end: Colors.teal,
+      end: kBackgroundColor,
     ).animate(controller);
 
     controller.forward();
@@ -72,7 +72,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       textStyle: const TextStyle(
                         fontSize: 45.0,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black54,
+                        color: kBrightTextColor,
                       ),
                       // textStyle: const TextStyle(
                       //   fontSize: 32.0,
@@ -101,7 +101,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   );
                 },
                 label: 'Log In',
-                color: Colors.lightBlueAccent,
+                color: kLogInButtonColor,
               ),
             ),
             Hero(
@@ -114,7 +114,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   );
                 },
                 label: 'Register',
-                color: Colors.blueAccent,
+                color: kRegisterButtonColor,
               ),
             ),
           ],

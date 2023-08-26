@@ -65,7 +65,9 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
         title: Row(
           children: [
-            Text('Chat'.toUpperCase()),
+            Text(
+              'Chat'.toUpperCase(),
+            ),
             const SizedBox(
               width: 10.0,
             ),
@@ -73,55 +75,72 @@ class _ChatScreenState extends State<ChatScreen> {
               '$email',
               style: const TextStyle(
                 fontSize: 15.0,
-                color: Colors.blueGrey,
+                color: kHintTextColor,
               ),
             ),
           ],
         ),
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: kBackgroundColor,
       ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            MessagesStream(
-              firestore: _firestore,
-              user: _auth.currentUser,
+      body: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: kRegisterButtonColor,
+              width: 2.0,
             ),
-            Container(
-              decoration: kMessageContainerDecoration,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: messageTextController,
-                      onChanged: (value) {
-                        messageText = value;
-                      },
-                      decoration: kMessageTextFieldDecoration,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      messageTextController.clear();
-                      _firestore.collection(kMainChatCollectionName).add({
-                        'text': messageText,
-                        'sender': loggedInUser.email,
-                        'displayName': loggedInUser.displayName,
-                        'timestamp': DateTime.timestamp(),
-                      });
-                    },
-                    child: const Text(
-                      'Send',
-                      style: kSendButtonTextStyle,
-                    ),
-                  ),
-                ],
+          ),
+          color: kChatBackgroundColor,
+        ),
+        // color: kChatBackgroundColor,
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              MessagesStream(
+                firestore: _firestore,
+                user: _auth.currentUser,
               ),
-            ),
-          ],
+              Container(
+                decoration: kMessageContainerDecoration,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        //TODO: add behaviors for when a user presses enter while in the field
+                        controller: messageTextController,
+                        onChanged: (value) {
+                          messageText = value;
+                        },
+                        style: TextStyle(
+                          color: kBrightTextColor,
+                        ),
+                        cursorColor: kBrightTextColor,
+                        decoration: kMessageTextFieldDecoration,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        messageTextController.clear();
+                        _firestore.collection(kMainChatCollectionName).add({
+                          'text': messageText,
+                          'sender': loggedInUser.email,
+                          'displayName': loggedInUser.displayName,
+                          'timestamp': DateTime.timestamp(),
+                        });
+                      },
+                      child: const Text(
+                        'Send',
+                        style: kSendButtonTextStyle,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
