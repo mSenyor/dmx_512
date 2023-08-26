@@ -31,7 +31,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Form(
             key: _registerFormKey,
             child: Column(
@@ -41,7 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Flexible(
                   child: Hero(
                     tag: 'logo',
-                    child: Container(
+                    child: SizedBox(
                       height: 200.0,
                       child: Image.asset(
                         kLogo,
@@ -49,7 +49,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 TextFormField(
@@ -69,7 +69,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 TextFormField(
@@ -88,7 +88,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 TextFormField(
@@ -107,7 +107,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24.0,
                 ),
                 Hero(
@@ -119,43 +119,40 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           showSpinner = true;
                         });
                         try {
-                          final newUser =
-                              await _auth.createUserWithEmailAndPassword(
+                          await _auth.createUserWithEmailAndPassword(
                             email: email,
                             password: password,
                           );
-                          if (newUser != null) {
-                            registerUser(_auth.currentUser, nickname);
-                            final currentUserLogged = await _auth.currentUser;
-                            if (currentUserLogged != null) {
-                              // currentUserLogged.emailVerified
-                              if (currentUserLogged.emailVerified) {
-                                Navigator.pushNamed(context, ChatScreen.id);
-                              } else {
-                                var user = _auth.currentUser;
-                                await user?.sendEmailVerification();
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) =>
-                                      AlertDialog(
-                                    title: const Text(
-                                        'Registration completed successfuly!'),
-                                    content: const Text(
-                                        'You will be sent a verification link to the email address you\'ve provided within a few minutes. Once your complete the verification, you can log in to the chat through the Log In screen'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context, 'OK');
-                                          Navigator.pushNamed(context, LoginScreen.id);
-                                        },
-                                        child: const Text(
-                                          'OK',
-                                        ),
+                          registerUser(_auth.currentUser, nickname);
+                          final currentUserLogged = _auth.currentUser;
+                          if (currentUserLogged != null) {
+                            // currentUserLogged.emailVerified
+                            if (currentUserLogged.emailVerified) {
+                              Navigator.pushNamed(context, ChatScreen.id);
+                            } else {
+                              var user = _auth.currentUser;
+                              await user?.sendEmailVerification();
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) =>
+                                    AlertDialog(
+                                  title: const Text(
+                                      'Registration completed successfully!'),
+                                  content: const Text(
+                                      'You will be sent a verification link to the email address you\'ve provided within a few minutes. Once your complete the verification, you can log in to the chat through the Log In screen'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context, 'OK');
+                                        Navigator.pushNamed(context, LoginScreen.id);
+                                      },
+                                      child: const Text(
+                                        'OK',
                                       ),
-                                    ],
-                                  ),
-                                );
-                              }
+                                    ),
+                                  ],
+                                ),
+                              );
                             }
                           }
                           setState(() {

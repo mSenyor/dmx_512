@@ -35,13 +35,15 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void getCurrentUser() async {
     try {
-      final user = await _auth.currentUser;
+      final user = _auth.currentUser;
       if (user != null) {
         loggedInUser = user;
-        print(loggedInUser.email);
+        //TODO: remove commented print before build
+        // print(loggedInUser.email);
       }
     } catch (e) {
-      print(e);
+      //TODO: remove commented print before build
+      // print(e);
     }
   }
 
@@ -59,18 +61,18 @@ class _ChatScreenState extends State<ChatScreen> {
               _auth.signOut();
               Navigator.pop(context);
             },
-            icon: Icon(Icons.close),
+            icon: const Icon(Icons.close),
           ),
         ],
         title: Row(
           children: [
             Text('Chat'.toUpperCase()),
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
             Text(
               '$email',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15.0,
                 color: Colors.blueGrey,
               ),
@@ -112,7 +114,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         'timestamp': DateTime.timestamp(),
                       });
                     },
-                    child: Text(
+                    child: const Text(
                       'Send',
                       style: kSendButtonTextStyle,
                     ),

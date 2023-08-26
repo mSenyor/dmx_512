@@ -24,9 +24,9 @@ class SingleMessageBubble extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '$displayName',
+            displayName,
             // 'Temp Name',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12.0,
               color: Colors.black54,
             ),
@@ -34,16 +34,16 @@ class SingleMessageBubble extends StatelessWidget {
           Row(
             children: [
               Text(
-                '$sender',
-                style: TextStyle(
+                sender,
+                style: const TextStyle(
                   fontSize: 10.0,
                   color: Colors.black26,
                 ),
               ),
-              SizedBox(width: 10.0,),
+              const SizedBox(width: 10.0,),
               Text(
-                '$time',
-                style: TextStyle(
+                time,
+                style: const TextStyle(
                   fontSize: 10.0,
                   color: Colors.black26,
                 ),
@@ -51,7 +51,7 @@ class SingleMessageBubble extends StatelessWidget {
             ],
           ),
           Material(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(30.0),
               bottomLeft: Radius.circular(30.0),
               bottomRight: Radius.circular(30.0),
@@ -59,13 +59,13 @@ class SingleMessageBubble extends StatelessWidget {
             elevation: 5.0,
             color: Colors.white,
             child: Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 10.0,
                 horizontal: 20.0,
               ),
               child: Text(
-                '$text',
-                style: TextStyle(
+                text,
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 15.0,
                 ),
@@ -79,14 +79,14 @@ class SingleMessageBubble extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(
-            '$sender',
-            style: TextStyle(
+            sender,
+            style: const TextStyle(
               fontSize: 12.0,
               color: Colors.black54,
             ),
           ),
           Material(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30.0),
               bottomLeft: Radius.circular(30.0),
               bottomRight: Radius.circular(30.0),
@@ -94,13 +94,13 @@ class SingleMessageBubble extends StatelessWidget {
             elevation: 5.0,
             color: Colors.lightBlueAccent,
             child: Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 10.0,
                 horizontal: 20.0,
               ),
               child: Text(
-                '$text',
-                style: TextStyle(
+                text,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 15.0,
                 ),
@@ -115,7 +115,7 @@ class SingleMessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       child: getStyledBubble(isMe),
     );
   }

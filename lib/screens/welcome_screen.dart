@@ -23,7 +23,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   void initState() {
     super.initState();
     controller = AnimationController(
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
       vsync: this,
     );
     animation = ColorTween(
@@ -48,7 +48,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     return Scaffold(
       backgroundColor: animation.value,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -57,9 +57,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               children: [
                 Hero(
                   tag: 'logo',
-                  child: Container(
-                    child: Image.asset(kLogo),
+                  child: SizedBox(
                     height: 60.0,
+                    child: Image.asset(kLogo),
                   ),
                 ),
                 // TypewriterAnimatedText(text: ['test']),
@@ -69,7 +69,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   animatedTexts: [
                     TypewriterAnimatedText(
                       kAppName,
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 45.0,
                         fontWeight: FontWeight.w900,
                         color: Colors.black54,
@@ -88,7 +88,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 48.0,
             ),
             Hero(

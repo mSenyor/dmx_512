@@ -1,7 +1,6 @@
 import 'package:dmx_512/components/rounded_button.dart';
 import 'package:dmx_512/constants.dart';
 import 'package:dmx_512/screens/chat_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -30,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Form(
             key: _loginFormKey,
             child: Column(
@@ -40,13 +39,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 Flexible(
                   child: Hero(
                     tag: 'logo',
-                    child: Container(
+                    child: SizedBox(
                       height: 200.0,
                       child: Image.asset(kLogo),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 TextFormField(
@@ -65,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 TextFormField(
@@ -74,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (value) {
                     password = value;
                   },
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black54,
                   ),
                   decoration: kTextFieldInputDecoration.copyWith(
@@ -87,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 Hero(
@@ -99,40 +98,37 @@ class _LoginScreenState extends State<LoginScreen> {
                           showSpinner = true;
                         });
                         try {
-                          final credential = await FirebaseAuth.instance
+                          await FirebaseAuth.instance
                               .signInWithEmailAndPassword(
                             email: email,
                             password: password,
                           );
-                          if (credential != null) {
-                            var user = _auth.currentUser;
-                            if(user!.emailVerified){
-                              Navigator.pushNamed(context, ChatScreen.id);
-                            }
-                            else{
-                              await user?.sendEmailVerification();
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('Verify your email'),
-                                  content: const Text('Please log in to your email account and verify it by clicking the link provided'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: (){
-                                        Navigator.pop(context, 'Got it!');
-                                        setState(() {
-                                          showSpinner = false;
-                                        });
-                                      },
-                                      child: const Text(
-                                        'Got it!',
-                                      ),
+                          var user = _auth.currentUser;
+                          if(user!.emailVerified){
+                            Navigator.pushNamed(context, ChatScreen.id);
+                          }
+                          else{
+                            await user.sendEmailVerification();
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                title: const Text('Verify your email'),
+                                content: const Text('Please log in to your email account and verify it by clicking the link provided'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: (){
+                                      Navigator.pop(context, 'Got it!');
+                                      setState(() {
+                                        showSpinner = false;
+                                      });
+                                    },
+                                    child: const Text(
+                                      'Got it!',
                                     ),
-                                  ],
-                                ),
-                              );
-                            }
-                            // Navigator.pushNamed(context, ChatScreen.id);
+                                  ),
+                                ],
+                              ),
+                            );
                           }
                           setState(() {
                             showSpinner = false;
